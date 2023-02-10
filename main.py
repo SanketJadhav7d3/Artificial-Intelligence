@@ -1,10 +1,22 @@
 
 from lib.tensor import Tensor
 from lib.deriv.derivative import deriv
+from lib.sigmoid_neuron import SigmoidNeuron
 import numpy as np
+import matplotlib.pyplot as plt
 
-a = Tensor([1, 2, 3, 4, 5], autograd=True)
-b = Tensor([1, 2, 3, 4, 5], autograd=True)
-c = Tensor([1, 2, 3, 4, 5], autograd=True)
+X = [0.5, 3.4]
+Y = [0.4, 0.9]
 
-print(c.sum(0))
+s = SigmoidNeuron()
+
+s.train(X, Y)
+
+plt.scatter(X, Y)
+
+x_lin = np.arange(-10, 10, 0.1)
+
+
+plt.plot(x_lin, s.sigmoid(x_lin))
+
+plt.show()
