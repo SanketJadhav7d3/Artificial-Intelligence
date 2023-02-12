@@ -16,7 +16,6 @@ plt.scatter(X, Y)
 
 x_lin = np.arange(-10, 10, 0.1)
 
-
 plt.plot(x_lin, s.sigmoid(x_lin))
 
 plt.show()
