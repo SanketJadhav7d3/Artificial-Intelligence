@@ -1,11 +1,12 @@
 
 import numpy as np
 
+
 class SigmoidNeuron:
     
     def __init__(self):
         # randomly initialize weights and bias
-        self.weight = np.random.sample()
+        self.weight = 4
         self.bias = np.random.sample()
 
     def sigmoid(self, x: int) -> float:
@@ -43,4 +44,3 @@ class SigmoidNeuron:
 
             self.weight = self.weight - lr * dw
             self.bias = self.bias - lr * db
-
