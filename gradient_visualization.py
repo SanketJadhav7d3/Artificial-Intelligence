@@ -10,8 +10,8 @@ ws = np.arange(-5, 5, 0.1)
 bs = np.arange(-5, 5, 0.1)
 
 # find sigmoid function which passes through both points
-X = [0.4, 0.3]
-Y = [0.8, 0.2]
+X = [0.9, 0.4, 0.1]
+Y = [0.1, 0.3, 0.7]
 
 def sigmoid(x: list, w: list, b: float):
     return 1 / (1 + np.exp(-(np.dot(x, w) + b)))
@@ -32,7 +32,8 @@ w_mesh, b_mesh = np.meshgrid(ws, bs)
 
 error = np.zeros(w_mesh.shape)
 
-fig = plt.figure(figsize=(9, 9))
+fig = plt.figure(figsize=(10, 8))
+fig.suptitle("Gradient Visualization")
 ax = fig.add_subplot(2, 1, 1, projection ='3d')
  
 ax.set_zlabel("Error")
@@ -54,7 +55,7 @@ ax.scatter(s.weight, s.bias, calculate_error(1, s.weight, s.bias), color='green'
 # training the model
 for i in range(4000):
 
-    s.stochastic_gradient_descent(X, Y, 1)
+    s.stochastic_gradient_descent(X, Y, 1, print_diagnostic=True)
 
     if i % 50 == 0:
         ax.scatter(s.weight, s.bias, calculate_error(1, s.weight, s.bias), color='green')
@@ -76,3 +77,5 @@ ax.set_xlabel("Weight")
 ax.set_ylabel("Bias")
 
 plt.show()
+
+# fig.savefig("images/gradient_visualization.png", bbox_inches='tight')
