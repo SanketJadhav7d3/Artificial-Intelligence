@@ -7,13 +7,13 @@ columns = 4
 
 fig = plt.figure(figsize=(10, 8))
 
-img = cv.imread("poke.png")
+img = cv.imread("images/darkerthanblack.jpg")
 
 gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
 
 u, s, v = np.linalg.svd(gray, full_matrices=False)
 
-rank_values = [50, 100, 150, 200, 250, 300, 350, gray.shape[0]]
+rank_values = [10, 30, 60, 200, 250, 300, 350, gray.shape[0]]
 
 for i, rank in enumerate(rank_values):
     low_rank = u[:, :rank] @ np.diag(s[:rank]) @ v[:rank, :]
