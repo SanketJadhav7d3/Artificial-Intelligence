@@ -1,6 +1,6 @@
 # Artificial Intelligence
 
-Scratch Implementation of simple ML algorithms.
+From scratch Implementation of simple ML algorithms.
 
 ## Toy Sigmoid Neuron for Gradient Visualization
 
