@@ -10,8 +10,8 @@ ws = np.arange(-5, 5, 0.1)
 bs = np.arange(-5, 5, 0.1)
 
 # find sigmoid function which passes through both points
-X = [0.9, 0.4, 0.1]
-Y = [0.1, 0.3, 0.7]
+X = [0.1, 0.5, 0.9]
+Y = [0.2, 0.1, 0.5]
 
 def sigmoid(x: list, w: list, b: float):
     return 1 / (1 + np.exp(-(np.dot(x, w) + b)))
@@ -55,7 +55,7 @@ ax.scatter(s.weight, s.bias, calculate_error(1, s.weight, s.bias), color='green'
 # training the model
 for i in range(4000):
 
-    s.stochastic_gradient_descent(X, Y, 1, print_diagnostic=True)
+    s.do_adagrad(X, Y, 1)
 
     if i % 50 == 0:
         ax.scatter(s.weight, s.bias, calculate_error(1, s.weight, s.bias), color='green')

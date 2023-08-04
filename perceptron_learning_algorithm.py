@@ -5,7 +5,7 @@ import math
 
 # AND Boolean function
 Xs = np.array([[0, 0], [0, 1], [1, 0], [1, 1]])
-ys = np.array([0, 0, 0, 1])
+ys = np.array([0, 1, 1, 1])
 
 Ws = np.random.sample((2,))
 
@@ -45,10 +45,6 @@ plt.scatter(Xs[:, 0], Xs[:, 1])
 plt.plot(Xs[1:3, 0], Xs[1:3, 1], linestyle="dotted")
 plt.plot(Ws + bias, label="Weight vector")
 
-# calculate angle between wegiht vector and inputs
-print(np.rad2deg(angle(Ws + bias, Xs[1])))
-print(np.rad2deg(angle(Ws + bias, Xs[2])))
-print(np.rad2deg(angle(Ws + bias, Xs[3])))
 
 plt.legend()
 plt.show()

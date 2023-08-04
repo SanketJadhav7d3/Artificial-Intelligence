@@ -81,3 +81,21 @@ class SigmoidNeuron:
             if print_diagnostic and i % 100 == 0:
                     # print("Error: ", self.error(inputs, outputs))
                     pass
+
+
+    def do_adagrad(self, inputs, outputs, max_epochs=1000):
+        v_w, v_b, eta, eps = 0, 0, 0.1, 1e-8
+        for i in range(max_epochs):
+
+            dw, db = 0, 0
+            points_seen = 0
+
+            for x, y in zip(inputs, outputs):
+                dw += self.grad_w(x, y)
+                db += self.grad_b(x, y)
+
+            v_w += dw ** 2
+            v_b += db ** 2
+
+            self.weight -= (eta / np.sqrt(v_w + eps)) * dw
+            self.bias -= (eta / np.sqrt(v_b + eps)) * db
