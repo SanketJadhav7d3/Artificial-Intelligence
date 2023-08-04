@@ -1,7 +1,6 @@
 # Artificial Intelligence
 
-This repo contains all the examples I have done while learning about Artificial
-Intelligence.
+From scratch Implementation of simple ML algorithms.
 
 ## Toy Sigmoid Neuron for Gradient Visualization
 
